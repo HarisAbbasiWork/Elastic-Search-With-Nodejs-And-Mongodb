@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt")
 var ObjectId = require('mongodb').ObjectID;
 const saltRounds = 10;
 var jwt = require('jsonwebtoken');
-const createuser = async(req,res)=>{ 
+const createUser = async(req,res)=>{ 
   const{userName,email,gender,password}=req.body;
   const ifuser=await userModel.findOne({ userName: userName })
   if(ifuser){
@@ -35,7 +35,7 @@ const createuser = async(req,res)=>{
 
     
 }
-const getusers=async(req,res)=>{ 
+const getUsers=async(req,res)=>{ 
   const filter = {};
   const users = await userModel.find(filter);
   res.status(200).json({
@@ -44,7 +44,7 @@ const getusers=async(req,res)=>{
     users:users
   })    
 }
-const getuserbyname=async(req,res)=>{ 
+const getUserByName=async(req,res)=>{ 
   console.log(req.params.name)  
   const user=await userModel.findOne({"username": req.params.name})
   if(user){
@@ -96,8 +96,8 @@ const login=async(req,res)=>{
   }
 }
 module.exports = {
-  createuser,
-  getusers,
-  getuserbyname,
+  createUser,
+  getUsers,
+  getUserByName,
   login
 };
