@@ -33,8 +33,8 @@ const verifyToken = async (req, res, next) => {
   }
 }
 
-router.post('/', userController.createuser)
-router.get('/', verifyToken, userController.getusers)
-router.get('/:name', verifyToken, userController.getuserbyname)
+router.post('/', userController.createUser)
+router.get('/', verifyToken, userController.getUsers)
+router.get('/:name', verifyToken, userController.getUserByName)
 router.post('/login', userController.login)
 module.exports = router;
