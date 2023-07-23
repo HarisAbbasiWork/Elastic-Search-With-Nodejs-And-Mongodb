@@ -169,10 +169,10 @@ const filterPostsByDate = async (req, res) => {
         res.status(500).send({
             success: false,
             message: "Error searching posts",
-        });
+        }); 
     }
 };
-
+ 
 const getPostById = async (req, res) => {
     try {
         const { id } = req.params;
